@@ -19,7 +19,7 @@ export default function Home() {
   const [error, setError] = useState(null);
 console.log("homedeki",weatherData);
 const [loading,setLoading]=useState(false)
- const  {fahrenheitToCelcsius}=helpers()
+ const  {fahrenheitToCelcsius,}=helpers()
 
 
  

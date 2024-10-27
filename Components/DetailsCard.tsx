@@ -1,5 +1,7 @@
 import { DetailsProps } from '@/interfaces';
+import { helpers } from '@/utils/helpers';
 import React from 'react'
+import { FaMoon, FaSun  } from "react-icons/fa";
 
 const DetailsCard:React.FC<DetailsProps> = ({weatherData,fahrenheitToCelcsius}) => {
 
@@ -7,11 +9,16 @@ const DetailsCard:React.FC<DetailsProps> = ({weatherData,fahrenheitToCelcsius}) 
   ? fahrenheitToCelcsius(weatherData.main.temp)
   : null;    // const minntemp=fahrenheitToCelcsius(weatherData.main.temp_min)
 
+
+  const {useConvertTime}=helpers()
+
+
+const { result, formattedSunRise,formattedSunSet } = useConvertTime(weatherData);
     return (
         <div>
-          <p className='text-lg mt-6 lg:mt-10'>Weather Details...</p>
+          <p className='text-lg mt-4 lg:mt-10'>Weather Details...</p>
           <div>
-            <table className=' text-base lg:text-lg mt-10 lg:mt-[52px]'>
+            <table className=' text-base lg:text-lg mt-6 lg:mt-[52px]'>
               <thead>
                 <tr>
                   <th className='font-medium pb-4  flex  text-start w-full'>THUNDERSTORM WITH LIGHT DRIZZLE</th>
@@ -43,6 +50,31 @@ const DetailsCard:React.FC<DetailsProps> = ({weatherData,fahrenheitToCelcsius}) 
                 </tr>
               </tbody>
             </table>
+
+            <div className='500 text-xl '>
+              <div className='flex my-2 gap-2 items-center'> 
+              < FaSun 
+              className='text-yellow-300'/>
+
+              {/* <img className='w-[26px] ' src="/sunny.png" alt="" /> */}
+              <p className='gap-4 flex '>
+              SunRise:    
+              <span className=''>  {formattedSunRise}</span>
+             </p>
+
+              </div>
+              <div className='flex items-center my-4 gap-2' >
+              {/* <img className='w-[26px]' src="/sunny.png" alt="" /> */}
+              <FaMoon className='text-yellow-400' />
+
+              <p className='flex gap-6 '>
+
+                SunSet:
+<span>      {formattedSunSet}</span>
+           </p>
+              </div>
+            
+            </div>
           </div>
         </div>
       );

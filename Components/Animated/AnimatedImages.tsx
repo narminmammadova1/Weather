@@ -1,6 +1,6 @@
 import { AnimatedPropss } from '@/interfaces';
 import React from 'react'
-import {  useSpring,animated, AnimatedProps } from 'react-spring'
+import {  useSpring,animated} from 'react-spring'
 import { useInView } from 'react-intersection-observer';
 
 const AnimatedImages:React.FC<AnimatedPropss> = ({children}) => {

@@ -3,13 +3,14 @@
 
 import React, { useRef, useState } from 'react';
 import DetailsCard from './DetailsCard';
-import { ClipLoader } from 'react-spinners';
+import { ClipLoader, GridLoader } from 'react-spinners';
 import { DetailsProps } from '@/interfaces';
+import { helpers } from '@/utils/helpers';
 
 const RightSide:React.FC<DetailsProps>= ({ fahrenheitToCelcsius,setWeatherData ,weatherData}) => {
     const [loading, setLoading] = useState(false);
     const searchCity = useRef<HTMLInputElement | null>(null);
-
+const {useConvertTime}=helpers()
     const handleSearch = async () => {
         const city = searchCity.current?.value  || ""
         if (city) {
@@ -43,9 +44,13 @@ const RightSide:React.FC<DetailsProps>= ({ fahrenheitToCelcsius,setWeatherData ,
     };
     console.log("rightdeki",weatherData);
 
+   
+    
+
+
     if (loading) return (
         <div className='w-full h-full fixed top-0 left-0 right-0 bottom-0  bg-transparent opacity-35  flex items-center justify-center z-30'>
-          <ClipLoader className='text-white' loading={true} size={60} />
+          <GridLoader className='text-white' loading={true} size={60} />
         </div>
       );
 
@@ -70,7 +75,7 @@ const RightSide:React.FC<DetailsProps>= ({ fahrenheitToCelcsius,setWeatherData ,
                     setWeatherData(null)
                     // searchCity.current.value=""
                 }} className=' border-gray-00 border rounded-md lg:px-2  h-[30px]  mt-4  ms-2 lg:mt-2 '>
-refresh                </button>
+Clear              </button>
             </div>
             {weatherData ? (
                 <DetailsCard fahrenheitToCelcsius={fahrenheitToCelcsius} weatherData={weatherData} />

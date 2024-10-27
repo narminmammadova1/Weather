@@ -23,8 +23,8 @@
 
 body {
   /* color: rgb(var(--foreground-rgb)); */
- background: url("../public/bg4.jpg") no-repeat ;
-   height: 100vh;
+ background: url("../public/night.jpg") no-repeat  ;
+   min-height: 100vh;
    background-size: cover;
 }
 

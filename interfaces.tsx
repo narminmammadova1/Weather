@@ -12,6 +12,10 @@ interface weatherDataprops{
         speed: number;    
         // deg?: number;     
     },
+    sys:{
+        sunrise:number,
+        sunset:number
+    }
     clouds: {
         all: number;       
     };
