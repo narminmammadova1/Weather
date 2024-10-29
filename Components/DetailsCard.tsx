@@ -7,10 +7,10 @@ const DetailsCard:React.FC<DetailsProps> = ({weatherData,fahrenheitToCelcsius}) 
 
   const mainTemp = weatherData?.main?.temp !== undefined
   ? fahrenheitToCelcsius(weatherData.main.temp)
-  : null;    // const minntemp=fahrenheitToCelcsius(weatherData.main.temp_min)
+  : null;  
 
 
-  const {useConvertTime}=helpers()
+  const {useConvertTime}=helpers() || {}
 
 
 const { result, formattedSunRise,formattedSunSet } = useConvertTime(weatherData);
@@ -56,7 +56,6 @@ const { result, formattedSunRise,formattedSunSet } = useConvertTime(weatherData)
               < FaSun 
               className='text-yellow-300'/>
 
-              {/* <img className='w-[26px] ' src="/sunny.png" alt="" /> */}
               <p className='gap-4 flex '>
               SunRise:    
               <span className=''>  {formattedSunRise}</span>
@@ -64,7 +63,6 @@ const { result, formattedSunRise,formattedSunSet } = useConvertTime(weatherData)
 
               </div>
               <div className='flex items-center my-4 gap-2' >
-              {/* <img className='w-[26px]' src="/sunny.png" alt="" /> */}
               <FaMoon className='text-yellow-400' />
 
               <p className='flex gap-6 '>

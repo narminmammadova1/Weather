@@ -1,7 +1,8 @@
 import { time } from "console";
+import { useEffect, useState } from "react";
 
 export const helpers=()=>{
-
+const [isEvening,setIsEvening]=useState(false)
     // const fahrenheit=55.6
     const fahrenheitToCelcsius=(fahrenheit:any)=>{
 
@@ -21,39 +22,63 @@ export const helpers=()=>{
         const date=new Date() 
         console.log("date",date);
        
+
+const utcTime=date.getTime()+date.getTimezoneOffset()*60000
+
+console.log("utc",utcTime);
+
+
+const  localTime=utcTime+timezoneOffset*1000
+console.log("locall",localTime);
         
-        const sunRise = new Date(weatherData?.sys.sunrise*1000 );
-        const sunSet=new Date(weatherData?.sys.sunset*1000 )
+const localDate=new Date(localTime)
+console.log("newDatelocale",localDate);
        
-        
-        const optionsTime: Intl.DateTimeFormatOptions = {
-          hour: '2-digit',
-          minute: '2-digit',
-          second: '2-digit'
-        };
+ 
+        const sunRise=weatherData?.sys?.sunrise * 1000
+      
+        const currentTime=new Date()
+        const ferq=currentTime.getTime()-utcTime
+const sunSet=weatherData?.sys?.sunset * 1000
+const  localRisee=sunRise+timezoneOffset*1000-ferq
+const  localSett=sunSet+timezoneOffset*1000-ferq
+
+const  localRise=new Date(localRisee)
+const localSet=new Date(localSett)
+
+console.log("localRisee",localRise);
+console.log("localSett",localSet);
+
+
+
+
+
+
+
         const optionsDate: Intl.DateTimeFormatOptions = {
           year: 'numeric',
           month: 'short',
           day: '2-digit',
           weekday: 'short',
-          timeZoneName: 'short'
         };
-        const optionsSubh={
-          hour:"2-digit",
-          minute:"2-digit"
-        }
-        const formattedTime=date.toLocaleTimeString("en-US",optionsTime)
-        const formattedDate=date.toLocaleDateString("en-US",optionsDate)
-        const  formattedSunRise=sunRise.toLocaleTimeString("en-US",optionsTime)
-        const  formattedSunSet=sunSet.toLocaleTimeString("en-US",optionsTime)
+    
+     
+        const formattedDate=localDate.toLocaleDateString("en-US",optionsDate)
+
         
-        console.log("formattedSunRise",formattedSunRise);
-        console.log("formattedSunSet",formattedSunSet);
+        const formattedTime=localDate.toLocaleTimeString()
+
+        const  formattedSunRise=localRise.toLocaleTimeString()
+        const  formattedSunSet=localSet.toLocaleTimeString()
         
+       
+        const localDateTime = new Date(localTime);
         
-        const result=`${formattedTime}, ${formattedDate}`
+        const result=`${formattedTime},   ${formattedDate}`
         console.log("formated",result);
         
+       
+
         
 
         return {
@@ -61,7 +86,10 @@ export const helpers=()=>{
             formattedDate,
             formattedSunRise,
             formattedSunSet,
-            result
+            result, localTime,
+            localRise,
+            localSet,
+            localDate
         };
 
 
@@ -71,7 +99,7 @@ export const helpers=()=>{
 
 
 
-return {fahrenheitToCelcsius,useConvertTime}
+return {fahrenheitToCelcsius,useConvertTime,setIsEvening,isEvening}
 
 
 

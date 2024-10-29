@@ -20,7 +20,7 @@ export default function Home() {
 console.log("homedeki",weatherData);
 const [loading,setLoading]=useState(false)
  const  {fahrenheitToCelcsius,}=helpers()
-
+const [isNight,setIsNight]=useState(false)
 
  
   if (loading) return <div>      <GridLoader loading={true} size={50} />
@@ -33,7 +33,7 @@ const [loading,setLoading]=useState(false)
   
   return (
     <main className="md:flex lg:flex min-h-screen w-full">
-            <RightSide   weatherData={weatherData} setWeatherData={setWeatherData}  fahrenheitToCelcsius={fahrenheitToCelcsius} />
+            <RightSide setIsNight={setIsNight}  weatherData={weatherData} setWeatherData={setWeatherData}  fahrenheitToCelcsius={fahrenheitToCelcsius} />
 
       <LeftSide  fahrenheitToCelcsius={fahrenheitToCelcsius} weatherData={weatherData} />
     </main>

@@ -23,7 +23,7 @@
 
 body {
   /* color: rgb(var(--foreground-rgb)); */
- background: url("../public/night.jpg") no-repeat  ;
+ background: url("../public/bg4.jpg") no-repeat  ;
    min-height: 100vh;
    background-size: cover;
 }
@@ -32,4 +32,21 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+
+body.evening {
+  background-image: url('../public/night.jpg');
+}
+
+input[type="search"] {
+  outline: none; 
+  border-bottom: 2px solid gray; 
+  background: transparent; 
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
 }

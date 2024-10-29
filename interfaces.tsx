@@ -28,5 +28,6 @@ interface weatherDataprops{
 export interface DetailsProps{
     weatherData:weatherDataprops  | null | undefined
     fahrenheitToCelcsius:(fahrenheit: number) => string
-setWeatherData?:any
+setWeatherData?:any,
+setIsNight?:any
 }
