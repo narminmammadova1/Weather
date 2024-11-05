@@ -1,5 +1,7 @@
-import React from 'react'
 import { AnimatedPropss } from '@/interfaces';
+
+
+import React from 'react'
 
 import {  useSpring,animated} from 'react-spring'
 import { useInView } from 'react-intersection-observer';
