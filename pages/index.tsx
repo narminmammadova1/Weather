@@ -20,6 +20,15 @@ export default function Home() {
       setWeatherData(JSON.parse(savedData)); 
     }
   }, []); 
+
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000); 
+    return () => clearInterval(interval);
+  }, [images]);
+  
   const [weatherData, setWeatherData] = useState(null)
   const [error, setError] = useState(null);
 console.log("homedeki",weatherData);
@@ -32,13 +41,7 @@ const [isNight,setIsNight]=useState(false)
 </div>;
   if (error) return <div>Error: {error}</div>;
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); 
-    return () => clearInterval(interval);
-  }, [images]);
-  
+ 
 
   
   return (
