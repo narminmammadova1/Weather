@@ -24,7 +24,7 @@ const RightSide:React.FC<DetailsProps>= ({ fahrenheitToCelcsius,setIsNight, setW
                         method: "GET",
                         headers: {
                             'x-rapidapi-host': 'open-weather13.p.rapidapi.com',
-                            'x-rapidapi-key':"73e0e940b9msh0bff904904dffa5p162dbajsn1e7da9d6354d"
+                            'x-rapidapi-key':" a17c74b483msh07873df70dac3edp177459jsnea54988bb55b"
                         },
                     }
                 );

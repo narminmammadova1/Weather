@@ -52,7 +52,7 @@ const [isNight,setIsNight]=useState(false)
       <LeftSide  fahrenheitToCelcsius={fahrenheitToCelcsius} weatherData={weatherData} />
     
       {!weatherData && (
-        <div className="fixed top-20 -z-10 w-full h-full">
+        <div className="fixed lg:top-20 -z-10 w-full min-h-full">
           {images.map((image, index) => (
             <div key={index} style={{ display: index === currentImageIndex ? 'block' : 'none' }}>
               <AnimatedImages>

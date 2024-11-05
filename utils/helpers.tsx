@@ -37,11 +37,12 @@ console.log("newDatelocale",localDate);
  
         const sunRise=weatherData?.sys?.sunrise * 1000
       
-        const currentTime=new Date()
-        const ferq=currentTime.getTime()-utcTime
+        const difference=date.getTime()-utcTime
+        // console.log("difffffffffffffffffff",difference/3600/1000);
+        
 const sunSet=weatherData?.sys?.sunset * 1000
-const  localRisee=sunRise+timezoneOffset*1000-ferq
-const  localSett=sunSet+timezoneOffset*1000-ferq
+const  localRisee=sunRise+timezoneOffset*1000-difference
+const  localSett=sunSet+timezoneOffset*1000-difference
 
 const  localRise=new Date(localRisee)
 const localSet=new Date(localSett)
@@ -104,4 +105,5 @@ return {fahrenheitToCelcsius,useConvertTime,setIsEvening,isEvening}
 
 
 }
+
 
