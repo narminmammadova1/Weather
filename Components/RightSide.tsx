@@ -13,7 +13,12 @@ const RightSide:React.FC<DetailsProps>= ({ fahrenheitToCelcsius,setIsNight, setW
     const { useConvertTime, isEvening, setIsEvening } = helpers();
     const { localTime, localRise, localSet ,localDate} = useConvertTime(weatherData);
     const handleSearch = async () => {
-        const city = searchCity.current?.value  || ""
+        let city = searchCity.current?.value  || ""
+
+        if (city.toLowerCase().includes("baki") || city.toLowerCase().includes("bakı")) {
+            city = "Baku"; 
+        }
+
         if (city) {
             setLoading(true); 
             setErrorMessage(null); 
