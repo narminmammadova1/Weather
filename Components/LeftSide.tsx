@@ -5,10 +5,12 @@ import { useSpring } from 'react-spring';
 import AnimatedImages from './Animated/AnimatedImages';
 import { DetailsProps } from '@/interfaces';
 
+
+
 const LeftSide:React.FC<DetailsProps>
  = ({fahrenheitToCelcsius,weatherData}) => {
 
-const [currentImageIndex,setCurrentImageIndex]=useState(0)
+// const [currentImageIndex,setCurrentImageIndex]=useState(0)
 
 const images=["./rainy.png","./snowy.png","./sunny.png"]
  
@@ -24,7 +26,7 @@ const { result, formattedSunRise } = useConvertTime(weatherData);
 //     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
 //   }, 3000); 
 //   return () => clearInterval(interval);
-// }, [images.length]);
+// }, [images]);
 
 
   if (!weatherData || weatherData?.timezone===undefined) {
@@ -34,13 +36,13 @@ const { result, formattedSunRise } = useConvertTime(weatherData);
         <p className='m-auto text-5xl lg:text-8xl text-white'>Weather App</p>
         </div>
         <div className='flex justify-center pt-4'>
-          {images.map((image, index) => (
+          {/* {images.map((image, index) => (
             <div key={index} style={{  display: index === currentImageIndex ? 'block' : 'none' }}>
-              {/* <AnimatedImages key={index}>
+              <AnimatedImages key={index}>
               <img className='w-[200px] lg:w-[300px] m-auto' src={image} alt="" />
-              </AnimatedImages> */}
+              </AnimatedImages>
             </div>
-          ))}
+          ))} */}
         </div>
 
       
@@ -68,7 +70,6 @@ return (
           <p className=' text-4xl lg:text-[60px]'>{weatherData.name}</p>
           <p className='text-sm lg:mt-6 font-medium lg:text-base'>{result} </p>
         </div>
-     
       </div>
     </div>
   )

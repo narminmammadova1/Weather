@@ -19,6 +19,10 @@ interface weatherDataprops{
     clouds: {
         all: number;       
     };
+    coord:{
+        lot:any,
+        lan:any
+    }
     timezone?:number,
     name?:string
 }

@@ -24,7 +24,7 @@ const RightSide:React.FC<DetailsProps>= ({ fahrenheitToCelcsius,setIsNight, setW
                         method: "GET",
                         headers: {
                             'x-rapidapi-host': 'open-weather13.p.rapidapi.com',
-                            'x-rapidapi-key': "cfb45c07c1msh8e6dda611bc534cp11c056jsn3ba51157f683"
+                            'x-rapidapi-key':"73e0e940b9msh0bff904904dffa5p162dbajsn1e7da9d6354d"
                         },
                     }
                 );
@@ -44,7 +44,7 @@ const RightSide:React.FC<DetailsProps>= ({ fahrenheitToCelcsius,setIsNight, setW
                 const data = await response.json();
                 console.log("Weather data:", data);
                 setWeatherData(data);
-                localStorage.setItem("weatherData",JSON.stringify(data))
+                sessionStorage.setItem("weatherData",JSON.stringify(data))
             } catch (err) {
                 console.log(err);
                 setErrorMessage("ERROR: An unexpected error occurred.");
