@@ -22,12 +22,12 @@ export default function Home() {
   }, []); 
 
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-  //   }, 3000); 
-  //   return () => clearInterval(interval);
-  // }, [images]);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000); 
+    return () => clearInterval(interval);
+  }, [images]);
   
   const [weatherData, setWeatherData] = useState(null)
   const [error, setError] = useState(null);
@@ -50,7 +50,7 @@ const [isNight,setIsNight]=useState(false)
             <RightSide setIsNight={setIsNight}  weatherData={weatherData} setWeatherData={setWeatherData}  fahrenheitToCelcsius={fahrenheitToCelcsius} />
 
       <LeftSide  fahrenheitToCelcsius={fahrenheitToCelcsius} weatherData={weatherData} />
-{/*     
+    
       {!weatherData && (
         <div className="fixed top-20 -z-10 w-full h-full">
           {images.map((image, index) => (
@@ -61,7 +61,7 @@ const [isNight,setIsNight]=useState(false)
             </div>
           ))}
         </div>
-      )} */}
+      )}
 
 
 

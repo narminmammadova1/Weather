@@ -55,7 +55,16 @@ const RightSide:React.FC<DetailsProps>= ({ fahrenheitToCelcsius,setIsNight, setW
     };
     console.log("rightdeki",weatherData);
 
-   
+
+    const handleKeyDown=(e:React.KeyboardEvent)=>{
+        if(e.key==="Enter"){
+            handleSearch()
+        }
+    }
+
+
+
+
     useEffect(() => {
         if (localDate.getTime() >= localSet.getTime() || localDate.getTime()<localRise.getTime() ) {
             setIsEvening(true);
@@ -92,6 +101,7 @@ const RightSide:React.FC<DetailsProps>= ({ fahrenheitToCelcsius,setIsNight, setW
                     className='lg:text-xl w-1/2 text-white px-2  bg-transparent'
                     placeholder='Search location'
                     type="search"
+                    onKeyDown={handleKeyDown}
                 />
                 <button onClick={handleSearch} className='relative right-6 lg:right-14  lg:top-0'>
                     <img className='w-[20px] lg:w-[30px]' src="./search.svg" alt="" />
