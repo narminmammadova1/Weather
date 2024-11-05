@@ -1,33 +1,25 @@
 
 import { Inter } from "next/font/google";
 import LeftSide from "../Components/LeftSide";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { helpers } from "@/utils/helpers";
 import RightSide from "@/Components/RightSide";
 import { GridLoader} from 'react-spinners';
 import AnimatedImages from "@/Components/Animated/AnimatedImages";
 
 const inter = Inter({ subsets: ["latin"] });
+const images=["./rainy.png","./snowy.png","./sunny.png"]
 
 export default function Home() {
 
   const [currentImageIndex,setCurrentImageIndex]=useState(0)
-  const images = useMemo(() => ["./rainy.png", "./snowy.png", "./sunny.png"], []);
 
   useEffect(() => {
     const savedData = sessionStorage.getItem("weatherData");
     if (savedData) {
       setWeatherData(JSON.parse(savedData)); 
     }
-  }, []);
-  
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); 
-    return () => clearInterval(interval);
-  }, [images]);
-  
+  }, []); 
   const [weatherData, setWeatherData] = useState(null)
   const [error, setError] = useState(null);
 console.log("homedeki",weatherData);
@@ -40,7 +32,13 @@ const [isNight,setIsNight]=useState(false)
 </div>;
   if (error) return <div>Error: {error}</div>;
 
- 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000); 
+    return () => clearInterval(interval);
+  }, [images]);
+  
 
   
   return (
