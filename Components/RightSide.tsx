@@ -29,7 +29,7 @@ const RightSide:React.FC<DetailsProps>= ({ fahrenheitToCelcsius,setIsNight, setW
                         method: "GET",
                         headers: {
                             'x-rapidapi-host': 'open-weather13.p.rapidapi.com',
-                            'x-rapidapi-key':" a17c74b483msh07873df70dac3edp177459jsnea54988bb55b"
+                            'x-rapidapi-key':"5eaa3bec02msh6d5e43f5df4d748p1504e3jsn588a2a0951ad"
                         },
                     }
                 );
@@ -135,3 +135,9 @@ Clear              </button>
 }
 
 export default RightSide;
+
+
+
+
+
+// 'x-rapidapi-key':" a17c74b483msh07873df70dac3edp177459jsnea54988bb55b"/  reserve api
