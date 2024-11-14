@@ -7,5 +7,7 @@ Technologies Used:
 
 
 Next.js: Ideal for Server-Side Rendering (SSR) and Static Site Generation (SSG), ensuring fast performance and SEO optimization.
+
 TypeScript: Enhances code quality, safety, and maintainability by providing static typing.
+
 RapidAPI: Used to fetch accurate and up-to-date weather information.
